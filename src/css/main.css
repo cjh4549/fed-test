@@ -3,11 +3,12 @@
 }
 
 #q4Wrapper {
-  background-color: #2A3035;
+  background-color: #2a3035;
   font-family: "Roboto", sans-serif;
   color: white;
 }
-#q4Wrapper h1, #q4Wrapper h3 {
+#q4Wrapper h1,
+#q4Wrapper h3 {
   margin: 0;
 }
 #q4Wrapper h1 {
@@ -18,8 +19,9 @@
   line-height: 20px;
   text-transform: uppercase;
 }
-#q4Wrapper header, #q4Wrapper footer {
-  background-color: #22272B;
+#q4Wrapper header,
+#q4Wrapper footer {
+  background-color: #22272b;
 }
 #q4Wrapper header {
   padding: 20px;
@@ -60,5 +62,43 @@
 
 /* Begin styling the report items here! */
 .reports {
+  display: -ms-flexbox;
+  -ms-flex-wrap: wrap;
+  -ms-box-pack: space-evenly;
+  -ms-flex-pack: justify;
+  justify-content: space-evenly;
+  /* Internet Explorer doesn't support grid properties, so I chose to use flexbox for IE*/
+  
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 30px;
+}
 
+@media (min-width: 769px) and (max-width: 840px) {
+  .reports {
+    overflow-x: scroll; /*At certain viewport range, the grid columns break out of the parent container. Instead of making multiple media query points, I chose to give horizontal scroll to give smooth visual experience */
+  }
+}
+
+@media (max-width: 768px) {
+  .reports {
+    display: grid;
+    -ms-grid-column: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 481px) and (max-width: 570px) {
+  .reports {
+    overflow-x: scroll;
+  }
+}
+
+@media (max-width: 480px) {
+  .reports {
+    display: grid;
+    -ms-grid-column: 1fr;
+    grid-template-columns: 1fr;
+  }
 }
